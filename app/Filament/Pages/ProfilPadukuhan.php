@@ -42,7 +42,7 @@ class ProfilPadukuhan extends Page implements HasForms
             FileUpload::make('thumbnail_deskripsi')->image()->disk('public')->directory('profile'),
             MarkdownEditor::make('visi'),
             MarkdownEditor::make('misi'),
-            FileUpload::make('struktur pemerintahan')->image()->disk('public')->directory('profile'),
+            FileUpload::make('struktur_pemerintahan')->image()->disk('public')->directory('profile'),
             // FileUpload::make('peta_lokasi')->disk('public')->directory('profile'),
             TextInput::make('peta_lokasi')->label('Link Google Maps')
         ])->statePath('data')->columns(2);
@@ -63,7 +63,6 @@ class ProfilPadukuhan extends Page implements HasForms
             $profile = ProfilePadukuhan::firstOrNew();
             $profile->fill($data);
             $profile->save();
-            // $profile->update($data);
 
             Notification::make()
             ->success()
