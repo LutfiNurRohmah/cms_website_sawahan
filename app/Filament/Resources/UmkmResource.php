@@ -176,11 +176,11 @@ class UmkmResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('thumbnail')->label('Gambar'),
-                TextColumn::make('umkm_name')->label('Nama UMKM'),
-                TextColumn::make('umkmCategory.name')->label('Kategori'),
-                TextColumn::make('owner')->label('Pemilik'),
+                TextColumn::make('umkm_name')->label('Nama UMKM')->sortable()->searchable(),
+                TextColumn::make('umkmCategory.name')->label('Kategori')->sortable()->searchable(),
+                TextColumn::make('owner')->label('Pemilik')->sortable()->searchable(),
                 TextColumn::make('contact')->label('No. Telepon'),
-                CheckboxColumn::make('published'),
+                CheckboxColumn::make('published')->sortable(),
             ])
             ->filters([
                 //
