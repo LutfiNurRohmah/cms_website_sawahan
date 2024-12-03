@@ -14,6 +14,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
+use Filament\Tables\Grouping\Group;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -50,9 +51,9 @@ class PopulationDistributionResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('category')->label('Kategori'),
-                TextColumn::make('sub_category')->label('Sub Kategori'),
-                TextColumn::make('total')->label('Jumlah'),
+                TextColumn::make('category')->label('Kategori')->sortable()->searchable(),
+                TextColumn::make('sub_category')->label('Sub Kategori')->searchable(),
+                TextColumn::make('total')->label('Jumlah')->sortable(),
             ])
             ->filters([
             ])
@@ -63,6 +64,10 @@ class PopulationDistributionResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ])
+            ->defaultGroup('category')
+            ->groups([
+                Group::make('category')->label('Kategori')
             ]);
     }
 

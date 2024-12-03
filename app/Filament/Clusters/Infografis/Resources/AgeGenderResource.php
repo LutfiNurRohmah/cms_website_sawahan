@@ -49,9 +49,9 @@ class AgeGenderResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('age_group')->label('Kelompok Umur'),
-                TextColumn::make('total_male')->label('Jumlah Laki-Laki'),
-                TextColumn::make('total_female')->label('Jumlah Perempuan'),
+                TextColumn::make('age_group')->label('Kelompok Umur')->sortable()->searchable(),
+                TextColumn::make('total_male')->label('Jumlah Laki-Laki')->sortable(),
+                TextColumn::make('total_female')->label('Jumlah Perempuan')->sortable(),
             ])
             ->filters([
                 //

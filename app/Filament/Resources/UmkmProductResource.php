@@ -20,6 +20,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Grouping\Group as GroupingGroup;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -68,21 +69,28 @@ class UmkmProductResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('thumbnail')->label('Gambar'),
-                TextColumn::make('name')->label('Nama Produk'),
-                TextColumn::make('price')->label('Harga'),
-                TextColumn::make('umkm.umkm_name')->label('UMKM'),
-                CheckboxColumn::make('published')
+                TextColumn::make('name')->label('Nama Produk')->sortable()->searchable(),
+                TextColumn::make('price')->label('Harga')->searchable(),
+                TextColumn::make('umkm.umkm_name')->label('UMKM')->sortable()->searchable(),
+                CheckboxColumn::make('published')->sortable()
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ])
+            ->defaultGroup('umkm.umkm_name')
+            ->groups([
+                GroupingGroup::make('umkm.umkm_name')->label('UMKM'),
+                GroupingGroup::make('published')->label('Terpublikasi')
             ]);
     }
 

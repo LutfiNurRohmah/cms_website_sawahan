@@ -19,6 +19,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Grouping\Group as GroupingGroup;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 
@@ -81,22 +82,27 @@ class PotensiPadukuhanResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('category')->label('Bidang'),
+                TextColumn::make('category')->label('Bidang')->searchable()->sortable(),
                 TextColumn::make('slug'),
                 ImageColumn::make('thumbnail'),
-                TextColumn::make('tags'),
-                CheckboxColumn::make('published'),
+                TextColumn::make('tags')->searchable(),
+                CheckboxColumn::make('published')->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ])
+            ->groups([
+                GroupingGroup::make('published')->label('Terpublikasi')
             ]);
     }
 
