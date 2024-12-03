@@ -2,6 +2,16 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Clusters\Infografis\Resources\AgeGenderResource\Widgets\AgeGenderChart;
+use App\Filament\Clusters\Infografis\Resources\PopulationDistributionResource\Widgets\EducationChart;
+use App\Filament\Clusters\Infografis\Resources\PopulationDistributionResource\Widgets\JobChart;
+use App\Filament\Clusters\Infografis\Resources\PopulationDistributionResource\Widgets\MarriedChart;
+use App\Filament\Clusters\Infografis\Resources\PopulationDistributionResource\Widgets\ReligionChart;
+use App\Filament\Clusters\Infografis\Resources\TotalPopulationResource\Widgets\TotalPopulation1Chart;
+use App\Filament\Clusters\Infografis\Resources\TotalPopulationResource\Widgets\TotalPopulationChart;
+use App\Filament\Clusters\Infografis\Resources\TotalPopulationResource\Widgets\TotalPopulationUmkmStat;
+use App\Filament\Resources\UmkmResource\Widgets\UmkmChart;
+use App\Filament\Resources\UmkmResource\Widgets\Umkmstats;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -39,8 +49,16 @@ class EditorPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
+                // Widgets\AccountWidget::class,
                 // Widgets\FilamentInfoWidget::class,
+                TotalPopulationUmkmStat::class,
+                UmkmChart::class,
+                TotalPopulation1Chart::class,
+                AgeGenderChart::class,
+                EducationChart::class,
+                JobChart::class,
+                MarriedChart::class,
+                ReligionChart::class,
             ])
             ->middleware([
                 EncryptCookies::class,
