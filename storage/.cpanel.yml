@@ -1,0 +1,5 @@
+---
+deployment:
+tasks:
+- export DEPLOYPATH=/home/piyz8595/public_html/cms.piyupi.my.id
+- /bin/cp -r * $DEPLOYPATH
