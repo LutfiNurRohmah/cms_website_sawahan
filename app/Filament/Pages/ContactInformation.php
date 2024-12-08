@@ -112,10 +112,6 @@ class ContactInformation extends Page implements HasForms
         try {
             $data = $this->form->getState();
             $contact_info = ModelsContactInformation::firstOrNew();
-            $gambar = $contact_info->thumbnail;
-            if ($gambar) {
-                Storage::disk('public')->delete($gambar);
-            }
             $contact_info->fill($data);
             $contact_info->save();
 
