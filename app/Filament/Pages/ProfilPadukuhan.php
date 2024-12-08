@@ -36,12 +36,28 @@ class ProfilPadukuhan extends Page implements HasForms
     public function form(Form $form): Form {
         return $form
         ->schema([
-            MarkdownEditor::make('sejarah'),
+            MarkdownEditor::make('sejarah')
+            ->helperText("Note: Ketik enter 2 kali untuk menambah baris baru")
+            ->disableToolbarButtons([
+                'attachFiles'
+            ]),
             FileUpload::make('thumbnail_sejarah')->image()->disk('public')->directory('profile'),
-            MarkdownEditor::make('deskripsi'),
+            MarkdownEditor::make('deskripsi')
+            ->helperText("Note: Ketik enter 2 kali untuk menambah baris baru")
+            ->disableToolbarButtons([
+                'attachFiles'
+            ]),
             FileUpload::make('thumbnail_deskripsi')->image()->disk('public')->directory('profile'),
-            MarkdownEditor::make('visi'),
-            MarkdownEditor::make('misi'),
+            MarkdownEditor::make('visi')
+            ->helperText("Note: Ketik enter 2 kali untuk menambah baris baru")
+            ->disableToolbarButtons([
+                'attachFiles'
+            ]),
+            MarkdownEditor::make('misi')
+            ->helperText("Note: Ketik enter 2 kali untuk menambah baris baru")
+            ->disableToolbarButtons([
+                'attachFiles'
+            ]),
             FileUpload::make('struktur_pemerintahan')->image()->disk('public')->directory('profile'),
             // FileUpload::make('peta_lokasi')->disk('public')->directory('profile'),
             TextInput::make('peta_lokasi')->label('Link Google Maps')
