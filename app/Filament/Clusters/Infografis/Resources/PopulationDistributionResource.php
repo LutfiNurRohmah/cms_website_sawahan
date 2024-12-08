@@ -41,7 +41,7 @@ class PopulationDistributionResource extends Resource
                 ->description('Isikan data persebaran penduduk padukuhan')
                 ->schema([
                     TextInput::make('category')->label('Kategori')->required(),
-                    TextInput::make('sub_category')->label('Sub Kategori')->unique()->required(),
+                    TextInput::make('sub_category')->label('Sub Kategori')->unique(ignoreRecord: true)->required(),
                     TextInput::make('total')->label('Jumlah')->numeric()->default(0),
                 ])->columns(3)
             ]);

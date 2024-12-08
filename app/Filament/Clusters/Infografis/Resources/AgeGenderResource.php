@@ -38,7 +38,7 @@ class AgeGenderResource extends Resource
                 Section::make('Persebaran Penduduk Berdasarkan Umur dan Gender')
                 ->description('Isikan data persebaran penduduk padukuhan')
                 ->schema([
-                    TextInput::make('age_group')->label('Kelompok Umur')->unique()->required(),
+                    TextInput::make('age_group')->label('Kelompok Umur')->unique(ignoreRecord: true)->required(),
                     TextInput::make('total_male')->label('Jumlah Laki-Laki')->numeric()->default(0),
                     TextInput::make('total_female')->label('Jumlah Perempuan')->numeric()->default(0),
                 ])->columns(3)

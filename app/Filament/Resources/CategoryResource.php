@@ -38,7 +38,7 @@ class CategoryResource extends Resource
                     ->description('Tambahkan Kategori UMKM yang Tersedia.')
                     ->schema([
                         TextInput::make('name')->label('Nama Kategori')->required(),
-                        TextInput::make('slug')->unique()->required(),
+                        TextInput::make('slug')->unique(ignoreRecord: true)->required(),
                     ])
             ]);
     }
