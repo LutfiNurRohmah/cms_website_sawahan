@@ -9,7 +9,7 @@ class JobChart extends ChartWidget
 {
     protected static ?string $heading = 'Persebaran Penduduk Berdasarkan Pekerjaan';
 
-    // protected int | string | array $columnSpan = 'full';
+    protected int | string | array $columnSpan = 'full';
 
     protected static ?string $maxHeight = '200px';
 

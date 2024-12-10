@@ -9,7 +9,7 @@ class ReligionChart extends ChartWidget
 {
     protected static ?string $heading = 'Persebaran Penduduk Berdasarkan Agama';
 
-    // protected int | string | array $columnSpan = 'full';
+    protected int | string | array $columnSpan = 'full';
 
     protected static ?string $maxHeight = '200px';
 

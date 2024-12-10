@@ -26,7 +26,7 @@ class ListPopulationDistributions extends ListRecords
         return [
             EducationChart::class,
             JobChart::class,
-            MarriedChart::class,
+            // MarriedChart::class,
             ReligionChart::class,
         ];
     }

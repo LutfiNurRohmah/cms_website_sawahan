@@ -57,7 +57,7 @@ class EditorPanelProvider extends PanelProvider
                 AgeGenderChart::class,
                 EducationChart::class,
                 JobChart::class,
-                MarriedChart::class,
+                // MarriedChart::class,
                 ReligionChart::class,
             ])
             ->middleware([

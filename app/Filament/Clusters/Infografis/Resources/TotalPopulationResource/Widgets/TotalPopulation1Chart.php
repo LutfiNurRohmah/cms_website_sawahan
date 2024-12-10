@@ -7,7 +7,7 @@ use Filament\Widgets\ChartWidget;
 
 class TotalPopulation1Chart extends ChartWidget
 {
-    protected static ?string $heading = 'Persebaran Penduduk Padukuhan Berdasarkan RT';
+    protected static ?string $heading = 'Persebaran Penduduk Berdasarkan Wilayah';
 
     protected static ?string $maxHeight = '300px';
 
