@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('sejarah')->nullable();
             $table->text('deskripsi')->nullable();
+            $table->text('sambutan_dukuh')->nullable();
             $table->text('visi')->nullable();
             $table->text('misi')->nullable();
             $table->string('struktur_pemerintahan')->nullable();

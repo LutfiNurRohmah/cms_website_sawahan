@@ -69,13 +69,15 @@ class ActivityResource extends Resource
                     Section::make('Gambar')
                     ->collapsible()
                     ->schema([
-                        FileUpload::make('thumbnail')->image()->multiple()->disk('public')->directory('kegiatan'),
+                        FileUpload::make('thumbnail')
+                        ->hiddenLabel()
+                        ->image()->multiple()->disk('public')->directory('kegiatan'),
                     ]),
                     Section::make('Meta')->schema([
                     TagsInput::make('tags'),
 
                     ]),
-                    Checkbox::make('published'),
+                    Checkbox::make('published')->label('Tampilkan'),
                 ])->columnSpan(1)
             ])->columns(3);
     }
@@ -84,11 +86,11 @@ class ActivityResource extends Resource
     {
         return $table
             ->columns([
+                CheckboxColumn::make('published')->label('Tampilkan')->sortable(),
                 TextColumn::make('name')->label('Nama Kegiatan')->sortable()->searchable(),
                 TextColumn::make('slug'),
                 ImageColumn::make('thumbnail'),
                 TextColumn::make('tags')->searchable(),
-                CheckboxColumn::make('published')->sortable(),
             ])
             ->filters([
                 //

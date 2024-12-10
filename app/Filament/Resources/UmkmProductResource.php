@@ -47,7 +47,12 @@ class UmkmProductResource extends Resource
                     ->schema([
                         TextInput::make('name')->label('Nama Produk')->required(),
                         TextInput::make('price')->label('Harga Produk'),
-                        MarkdownEditor::make('description')->label('Deskripsi Produk')->columnSpanFull(),
+                        MarkdownEditor::make('description')
+                        ->disableToolbarButtons([
+                            'attachFiles',
+                            'codeBlock'
+                        ])
+                        ->label('Deskripsi Produk')->columnSpanFull(),
                     ])->columnSpan(2)->columns(2),
 
                 Group::make()->schema([

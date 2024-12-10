@@ -104,27 +104,35 @@ class UmkmResource extends Resource
                             ->label('Pemilik')
                             ->required(),
                         TextInput::make('contact')
-                            ->label('Nomor Telepon'),
+                            ->label('Nomor WhatsApp')
+                            ->regex('/^62\d{8,13}$/')
+                            ->helperText('Masukkan nomor telepon yang valid diawali dengan 62'),
 
                         TextInput::make('address')
                             ->label('Alamat'),
                         TextInput::make('maps')
+                        ->url()
                             ->label('Link Google Maps'),
-                        MarkdownEditor::make('description')->label('Deskripsi')->columnSpanFull(),
+                        MarkdownEditor::make('description')
+                        ->disableToolbarButtons([
+                            'attachFiles',
+                            'codeBlock'
+                        ])
+                        ->label('Deskripsi')->columnSpanFull(),
 
-                    ])->columns(2)->columnSpan(7),
+                    ])->columns(2)->columnSpan(7)->collapsible(),
 
                     Group::make()->schema([
                         Section::make('Gambar')
                         ->collapsible()
                         ->schema([
-                            FileUpload::make('thumbnail')->image()->disk('public')->directory('umkm'),
+                            FileUpload::make('thumbnail')->hiddenLabel()->image()->disk('public')->directory('umkm'),
                         ]),
                         Section::make('Meta')->schema([
                         TagsInput::make('tags'),
 
                         ]),
-                        Checkbox::make('published'),
+                        Checkbox::make('published')->label('Tampilkan'),
                     ])->columnSpan(3),
                 ])->columns(10),
 
@@ -147,7 +155,7 @@ class UmkmResource extends Resource
                                 return $account->id;
                             }),
                         TextInput::make('link')
-                            ->label('Link Sosial Media')
+                            ->label('Link Akun')
                             ->url()
                             ->required(),
                     ]),
@@ -176,12 +184,12 @@ class UmkmResource extends Resource
     {
         return $table
             ->columns([
+                CheckboxColumn::make('published')->label('Tampilkan')->sortable(),
                 ImageColumn::make('thumbnail')->label('Gambar'),
                 TextColumn::make('umkm_name')->label('Nama UMKM')->sortable()->searchable(),
                 TextColumn::make('umkmCategory.name')->label('Kategori')->sortable()->searchable(),
                 TextColumn::make('owner')->label('Pemilik')->sortable()->searchable(),
                 TextColumn::make('contact')->label('No. Telepon'),
-                CheckboxColumn::make('published')->sortable(),
             ])
             ->filters([
                 //

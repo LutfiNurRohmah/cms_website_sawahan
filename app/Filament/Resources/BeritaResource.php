@@ -70,13 +70,15 @@ class BeritaResource extends Resource
                     Section::make('Gambar')
                     ->collapsible()
                     ->schema([
-                        FileUpload::make('thumbnail')->image()->multiple()->disk('public')->directory('berita'),
+                        FileUpload::make('thumbnail')
+                        ->hiddenLabel()
+                        ->image()->multiple()->disk('public')->directory('berita'),
                     ]),
                     Section::make('Meta')->schema([
                     TagsInput::make('tags'),
 
                     ]),
-                    Checkbox::make('published'),
+                    Checkbox::make('published')->label('Tampilkan'),
                 ])->columnSpan(1)
             ])->columns(3);
     }
@@ -85,12 +87,12 @@ class BeritaResource extends Resource
     {
         return $table
             ->columns([
+                CheckboxColumn::make('published')->label('Tampilkan')->sortable(),
                 TextColumn::make('title')->label('Judul')->searchable()->sortable(),
-                TextColumn::make('slug'),
+                // TextColumn::make('slug'),
                 TextColumn::make('author')->searchable()->sortable(),
                 ImageColumn::make('thumbnail'),
                 TextColumn::make('tags')->searchable(),
-                CheckboxColumn::make('published')->sortable(),
             ])
             ->filters([
                 //

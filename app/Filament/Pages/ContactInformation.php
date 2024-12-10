@@ -68,11 +68,11 @@ class ContactInformation extends Page implements HasForms
                     ->label('Nomor Telepon'),
                 ])->columns(2)->columnSpan(2),
 
-                Section::make('Media')
+                Section::make('Gambar')
                 ->collapsible()
                 ->schema([
                     FileUpload::make('thumbnail')
-                    ->label('Gambar')
+                    ->hiddenLabel()
                     ->multiple()
                     ->image()
                     ->disk('public')->directory('info_image')

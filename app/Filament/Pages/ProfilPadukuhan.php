@@ -5,7 +5,9 @@ namespace App\Filament\Pages;
 use App\Models\ProfilePadukuhan;
 use Filament\Actions\Action;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Group;
 use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
@@ -36,31 +38,58 @@ class ProfilPadukuhan extends Page implements HasForms
     public function form(Form $form): Form {
         return $form
         ->schema([
-            MarkdownEditor::make('sejarah')
-            ->helperText("Note: Ketik enter 2 kali untuk menambah baris baru")
-            ->disableToolbarButtons([
-                'attachFiles'
-            ]),
-            FileUpload::make('thumbnail_sejarah')->image()->disk('public')->directory('profile'),
+            Section::make('Sejarah Padukuhan')->schema([
+                MarkdownEditor::make('sejarah')
+                ->hiddenLabel()
+                ->disableToolbarButtons([
+                    'attachFiles',
+                    'codeBlock'
+                ])->columnSpan(2),
+                FileUpload::make('thumbnail_sejarah')->image()->disk('public')->directory('profile'),
+            ])->collapsible()->columns(3),
+
+            Section::make('Deskripsi Padukuhan')->schema([
             MarkdownEditor::make('deskripsi')
-            ->helperText("Note: Ketik enter 2 kali untuk menambah baris baru")
+            ->hiddenLabel()
             ->disableToolbarButtons([
-                'attachFiles'
-            ]),
+                'attachFiles',
+                'codeBlock'
+            ])->columnSpan(2),
             FileUpload::make('thumbnail_deskripsi')->image()->disk('public')->directory('profile'),
+            ])->collapsible()->columns(3),
+
+            Section::make('Visi dan Misi Padukuhan')->schema([
             MarkdownEditor::make('visi')
-            ->helperText("Note: Ketik enter 2 kali untuk menambah baris baru")
             ->disableToolbarButtons([
-                'attachFiles'
+                'attachFiles',
+                'codeBlock'
             ]),
             MarkdownEditor::make('misi')
-            ->helperText("Note: Ketik enter 2 kali untuk menambah baris baru")
             ->disableToolbarButtons([
-                'attachFiles'
+                'attachFiles',
+                'codeBlock'
             ]),
-            FileUpload::make('struktur_pemerintahan')->image()->disk('public')->directory('profile'),
-            // FileUpload::make('peta_lokasi')->disk('public')->directory('profile'),
-            TextInput::make('peta_lokasi')->label('Link Google Maps')
+            ])->collapsible()->columns(2),
+            Group::make()->schema([
+                Section::make()->schema([
+                    MarkdownEditor::make('sambutan_dukuh')
+                    ->label('Sambutan Kepala Dukuh')
+                    ->disableToolbarButtons([
+                        'attachFiles',
+                        'codeBlock'
+                    ]),
+                ])->columnSpan(2),
+                Group::make()->schema([
+                    Section::make('Struktur Pemerintahan')->schema([
+                    FileUpload::make('struktur_pemerintahan')->hiddenLabel()->image()->disk('public')->directory('profile'),
+                    // FileUpload::make('peta_lokasi')->disk('public')->directory('profile'),
+                    ])->collapsible()->columnSpan(1),
+                    Section::make('Lokasi Padukuhan')
+                    ->schema([
+                        TextInput::make('peta_lokasi')->hiddenLabel()->helperText("Note: Masukkan kode HTML yang ada di menu \"Bagikan>Sematkan Peta\" di Maps Lokasi.")
+                    ])->collapsible()->columnSpan(1),
+                ])->columnSpan(1),
+            ])->columnSpanFull()->columns(3),
         ])->statePath('data')->columns(2);
     }
 
