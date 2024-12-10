@@ -1,0 +1,361 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1200;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
+
+.content {
+    flex: 1;
+}
+
+.navbar-logo {
+    font-weight: 700;
+    font-style: normal;
+}
+
+.navbar-custom {
+    font-weight: 450;
+    /* background-color: #7DA0CA; */
+    /* background-color: #052659; */
+    background-color: #001022;
+}
+
+.navbar-nav .nav-item {
+    font-size: 20sp;
+    margin-left: 24px;
+}
+
+footer {
+    background-color: #001022;
+    color: #F5F5F5;
+    padding: 30px 80px;
+    /* margin-top: 24px; */
+    bottom: 0;
+}
+
+footer a {
+    color: #F5F5F5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 5px;
+}
+
+footer li:hover {
+    font-weight: 600;
+}
+
+.social-media-icons {
+    margin: 0;
+    display: flex;
+    gap: 10px;/* Spacing between icons */
+}
+
+.sosmed-logo {
+    width: 35px;
+}
+
+.social-media-icons .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px; /* Adjust size */
+    height: 45px; /* Adjust size */
+    border-radius: 50%; /* Makes the shape circular */
+    background-color: #7DA0CA; /* Blue background */
+    color: #F5F5F5; /* Icon color */
+    text-decoration: none; /* Removes underline for links */
+    transition: background-color 0.1s ease, transform 0.1s ease; /* Smooth effects */
+}
+
+.social-media-icons .icon:hover {
+    background-color: #7DA0CA; /* Darker blue on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.copyright {
+    /* background-color: #FEF9EC; */
+    /* background-color: #F5F5F5; */
+    background-color: #ECF3FE;
+    padding: 12px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.footer-title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 20px;
+}
+.footer-address {
+    margin: 0;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.footer-contact {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.footer-list {
+    flex: 1; text-align: left;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.contact-logo {
+    width: 30px;
+    margin-right: 5px;
+}
+.card-custom {
+    padding: 0;
+    background-color: #052659;
+    color: #f5f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+.card-img {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 120px;
+    max-height: 135px;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.pop-text {
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.card-body {
+    padding: 25px 30px;
+}
+
+.text-large {
+    font-size: 20px;
+}
+
+.tot-populasi {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Rata tengah horizontal */
+    gap: 25px;
+}
+
+.chart-populasi {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Rata tengah horizontal */
+    gap: 20px;
+}
+
+.chart-populasi p {
+    padding: 0;
+    margin: 0;
+}
+
+.card-product .card-body {
+    padding: 15px 20px;
+}
+
+.card-product .card-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.toast {
+    z-index: 1050; /* Default Bootstrap z-index for toasts */
+}
+
+a img {
+    z-index: 1100;
+    position: relative; /* Ensure z-index is applied */
+}
+
+.toast:not(.show) {
+    display: none; /* Hides the toast completely */
+}
+
+.detail {
+    padding: 30px 50px;
+}
+
+.detail .carousel-item {
+    height: 400px;
+}
+
+.umkm .card-text {
+    font-size: 12px;
+    margin: 5px 0;
+    font-weight: 400;
+}
+
+.umkm .card-title {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+}
+
+.sambutan p {
+    font-size: 12px;
+}
+.sambutan h1 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.see-more {
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 15px;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .sambutan h1 {
+        font-size: 22px;
+    }
+
+    .see-more {
+        bottom: 0;
+        left: 50%;
+        top: auto;
+        right: auto;
+        transform: translateX(-50%);
+        margin: 10px;
+    }
+
+    .card-product img {
+        height: 130px;
+    }
+
+
+    .umkm-desc p {
+        font-size: 12px;
+    }
+
+    .umkm-desc h1 {
+        font-size: 22px;
+    }
+
+    .umkm .card-text {
+        font-size: 12px; margin: 0 0 3px 0;
+    }
+
+    .umkm .card-title {
+        font-size: 20px; margin: 5px 0;
+    }
+
+    .card-product .card-body {
+        padding: 10px 15px;
+    }
+
+    .card-product .card-title {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .sosmed-logo {
+        width: 30px;
+    }
+
+    .contact-logo {
+        width: 25px;
+        margin-right: 3px;
+    }
+
+    .social-media-icons .icon {
+        width: 35px; /* Adjust size */
+        height: 35px; /* Adjust size */
+    }
+
+    footer {
+        padding: 20px 30px;
+    }
+    .copyright {
+        font-weight: 500;
+        font-size: 12px;
+    }
+    .footer-title {
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .footer-address {
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .footer-contact {
+        font-weight: 400;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .footer-list {
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .detail {
+        padding: 10px 20px;
+    }
+
+    .detail {
+        padding: 20px 30px;
+    }
+
+    .detail .blog-post-title {
+        font-size: 28px;
+    }
+    .detail .blog-post-meta {
+        font-size: 14px;
+    }
+
+    .detail .carousel-item {
+        height: 200px;
+    }
+}
