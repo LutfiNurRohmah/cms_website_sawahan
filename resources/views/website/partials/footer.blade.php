@@ -23,7 +23,7 @@
 
             <!-- Section: Contact Info -->
             <div class="foo" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-                <div class="footer-contact" style="flex: 4; min-width: 200px;">
+                <div class="footer-contact" style="flex: 4; min-width: 200px; font-weight: 600">
                     @if (!empty($contact_information->phone))
                     <p style="margin: 5px 0;">
                         <img class="contact-logo" src="/img/phone-call.png" alt="Phone">
@@ -38,7 +38,7 @@
                     @endif
                 </div>
                 <div style="flex: 3; display: flex;">
-                    <div class="footer-list">
+                    <div class="footer-list" style="font-weight: 500">
                         <ul style="list-style: none; margin: 0, 10p; padding: 0; display: flex; flex-direction: column; gap: 5px;">
                             <li><a href="/" style="color: white; text-decoration: none;">Beranda</a></li>
                             <li><a href="/profil-padukuhan" style="color: white; text-decoration: none;">Profil</a></li>
@@ -63,8 +63,8 @@
         </div>
     </div>
 </footer>
-<div class="container-fluid copyright">
-    <div class="col-md-12 text-center">
-        <p class="mb-0">&copy; Copyright 2024 by KKNM 19348 UNY</p>
+<div class="container-fluid">
+    <div class="copyright col-md-12 text-center">
+        <p class="m-0">&copy; Copyright 2024 by KKNM 19348 UNY</p>
     </div>
 </div>
