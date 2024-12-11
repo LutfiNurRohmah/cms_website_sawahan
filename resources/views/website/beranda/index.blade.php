@@ -148,6 +148,46 @@
 </div>
 @endif
 
+<div class="b-example-divider"></div>
+<div class="container sambutan">
+    <h1 class="px-3 pt-4 pb-3 border-bottom">Jelajahi Informasi Lain</h1>
+    <div class="px-3 row g-4 pb-5 pt-2 row-cols-1 row-cols-lg-4">
+      <div class="feature col">
+        <div class="icon-container">
+            <i class="bi bi-house-door fs-1"></i>
+        </div>
+        <h2>Profil Padukuhan</h2>
+        <p>Pelajari lebih lanjut tentang sejarah, visi, misi, dan struktur organisasi Padukuhan kami.</p>
+        <a href="/profil-padukuhan" class="icon-link">Selengkapnya</a>
+      </div>
+      <div class="feature col">
+        <div class="icon-container">
+            <i class="bi bi-bar-chart fs-1"></i>
+        </div>
+        <h2>Infografis Kependudukan</h2>
+        <p>Dapatkan data dan statistik terkini tentang jumlah penduduk dan distribusi umur.</p>
+        <a href="/infografis" class="icon-link">Selengkapnya</a>
+      </div>
+      <div class="feature col">
+        <div class="icon-container">
+            <i class="bi bi-graph-up fs-1"></i>
+        </div>
+        <h2>Potensi Padukuhan</h2>
+        <p>Jelajahi potensi unggulan Padukuhan kami, seperti hasil bumi dan kerajinan tangan.</p>
+        <a href="/potensi-padukuhan" class="icon-link">Selengkapnya</a>
+      </div>
+      <div class="feature col">
+        <div class="icon-container">
+            <i class="bi bi-calendar-check fs-1"></i>
+        </div>
+        <h2>Kegiatan Rutin</h2>
+        <p>Temukan informasi tentang kegiatan rutin masyarakat seperti kerja bakti dan perayaan tradisional.</p>
+        <a href="/kegiatan" class="icon-link">Selengkapnya</a>
+      </div>
+    </div>
+</div>
+
+
 @if (!empty($lokasi))
 <div class="b-example-divider"></div>
 <div class="container px-4">
