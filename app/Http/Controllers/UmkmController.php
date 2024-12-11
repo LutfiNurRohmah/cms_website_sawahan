@@ -15,16 +15,20 @@ class UmkmController extends Controller
 
         $query = Umkm::where('published', true);
 
-        if (request('search')) {
-            $query->where('umkm_name', 'like', '%' . request('search') . '%')
-                  ->orWhere('description', 'like', '%' . request('search') . '%')
-                  ->orWhereHas('umkmCategory', function ($q) {
-                      $q->where('name', 'like', '%' . request('search') . '%');
+        if ($search = request('search')) { // Save the search query for reuse
+            $query->where(function ($q) use ($search) {
+                $q->where('umkm_name', 'like', '%' . $search . '%')
+                  ->orWhere('description', 'like', '%' . $search . '%')
+                  ->orWhereHas('umkmCategory', function ($q) use ($search) {
+                      $q->where('name', 'like', '%' . $search . '%');
                   });
+            });
         }
 
         $data = $query->get()->map(function ($item) {
-            $item->deskripsi_thumbnail = Str::limit($item->description, 120, '...');
+            $item->deskripsi_thumbnail = $item->description
+                ? Str::limit($item->description, 120, '...')
+                : null; // Handle null descriptions gracefully
             return $item;
         });
 
