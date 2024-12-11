@@ -20,8 +20,8 @@ class HomeController extends Controller
         $lokasi = $profil->peta_lokasi;
         $sambutan = $profil->sambutan_dukuh;
         if ($sambutan) {
-            $processedSambutan = str_replace("\t", "", $sambutan);
-            $processedSambutan = str_replace("\n", "\n\n", $processedSambutan);
+            $sambutan = str_replace("\t", "", $sambutan);
+            $sambutan = str_replace("\n", "\n\n", $sambutan);
         }
 
         $berita = Berita::where('published', true)->orderBy('updated_at', 'desc')->limit(2)->get()->map(function ($item) {
@@ -45,7 +45,7 @@ class HomeController extends Controller
             "keywords" => 'website, desa, padukuhan, dusun, sawahan, yogyakarta, godean, sidomoyo, informasi',
             "images" => $images,
             "lokasi" => $lokasi,
-            "sambutan" => $processedSambutan,
+            "sambutan" => $sambutan,
             "beritas" => $berita,
             "umkms" => $umkm,
         ]);

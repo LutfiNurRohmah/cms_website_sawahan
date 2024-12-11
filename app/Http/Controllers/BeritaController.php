@@ -18,8 +18,8 @@ class BeritaController extends Controller
         });
         return view('website.berita.index', [
             "title" => "Berita",
-            "description" => null,
-            "keywords" => null,
+            "description" => "Halaman ini berisi berita seputar padukuhan sawahan sidomoyo godean.",
+            "keywords" => "berita, terbaru, kabar, berita sawahan, informasi, berita padukuhan sawahan",
             "data" => $data,
         ]);
     }

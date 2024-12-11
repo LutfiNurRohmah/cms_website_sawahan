@@ -44,7 +44,7 @@ class InfografisController extends Controller
         return view('website.infografis.index', [
             "title" => "Infografis",
             "description" => "Infografis ini memberikan gambaran visual mengenai data kependudukan di wilayah Padukuhan Sawahan. Informasi mencakup jumlah penduduk, distribusi usia, rasio gender, tingkat pendidikan, dan mata pencaharian masyarakat. Infografis ini bertujuan untuk memudahkan masyarakat dan pihak terkait dalam memahami karakteristik demografi serta potensi yang ada di wilayah ini.",
-            "keywords" => "infografis, penduduk, kependudukan, sawahan, persebaran penduduk, distribusi usia, pendidikan, pekerjaan, mata pencaharian, data, jumlah penduduk, ringkasan",
+            "keywords" => "infografis, penduduk, kependudukan, sawahan, sidomoyo, godean, sawahan sidomoyo, persebaran penduduk, distribusi usia, pendidikan, pekerjaan, mata pencaharian, data, jumlah penduduk, ringkasan",
             "agegender" => [$labels, $maleData, $femaleData],
             "population" => [$labels2, $values2],
             "infografis" => [$tot_population, $tot_kk, $tot_male, $tot_female],

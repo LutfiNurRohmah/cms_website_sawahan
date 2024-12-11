@@ -14,10 +14,13 @@ class KegiatanController extends Controller
             $item->deskripsi_thumbnail = Str::limit($item->description, 130, '...');
             return $item;
         });
+
+        $description = "Temukan berbagai informasi menarik tentang aktivitas rutin yang mempererat kebersamaan warga, melestarikan tradisi, dan mendukung kemajuan Padukuhan Sawahan.";
+        $keyword = "kegiatan, kegiatan rutin, kegiatan rutin sawahan, aktivitas, rutin, informasi kegiatan, sosial, masyarakat, warga, tradisi, kegiatan sosial";
         return view('website.kegiatan.index', [
             "title" => "Kegiatan Rutin",
-            "description" => null,
-            "keywords" => null,
+            "description" => $description,
+            "keywords" => $keyword,
             "data" => $data,
         ]);
     }

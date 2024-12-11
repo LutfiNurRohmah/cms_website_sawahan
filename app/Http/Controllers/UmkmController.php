@@ -28,10 +28,13 @@ class UmkmController extends Controller
             return $item;
         });
 
+        $description = "Temukan berbagai produk unggulan UMKM Padukuhan Sawahan sebagai langkah mendukung perekonomian lokal dan pemberdayaan masyarakat.";
+        $keyword = 'umkm, umkm padukuhan sawahan, umkm sawahan sidomoyo, produk, industri, ekonomi, usaha mikro, unggulan, usaha lokal, lokal, pemberdayaan masyarakat, warga sawahan, wirausaha';
+
         return view('website.umkm.index', [
             "title" => "UMKM",
-            "description" => null,
-            "keywords" => null,
+            "description" => $description,
+            "keywords" => $keyword,
             "data" => $data,
         ]);
     }
@@ -55,6 +58,9 @@ class UmkmController extends Controller
         ->limit(10)
         ->get();
 
+        $description = Str::limit($processedBody, 200, '...');
+        $keyword = implode(", ", $data->tags);
+
         return view('website.umkm.detail', [
             "title" => $title . " | UMKM",
             "umkm" => $data,
@@ -62,8 +68,8 @@ class UmkmController extends Controller
             "products" => $product,
             "accounts" => $account,
             "others" => $others,
-            "description" => null,
-            "keywords" => null,
+            "description" => $description,
+            "keywords" => $keyword,
         ]);
     }
 }

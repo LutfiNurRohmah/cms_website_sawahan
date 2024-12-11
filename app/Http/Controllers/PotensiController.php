@@ -16,10 +16,13 @@ class PotensiController extends Controller
             $item->updated_id = Carbon::parse($item->updated_at)->translatedFormat('d F Y');
             return $item;
         });
+
+        $description = "Padukuhan Sawahan menyimpan beragam potensi yang menjadi fondasi untuk membangun kesejahteraan bersama. Kenali potensi kami dan jadilah bagian dari perjalanan menuju padukuhan yang lebih baik.";
+        $keyword = 'potensi, potensi desa, potensi sawahan, perkembangan, potensi padukuhan sawahan, potensi sawahan sidomoyo, bidang';
         return view('website.potensi.index', [
             "title" => "Potensi Padukuhan",
-            "description" => null,
-            "keywords" => null,
+            "description" => $description,
+            "keywords" => $keyword,
             "data" => $data,
         ]);
     }
