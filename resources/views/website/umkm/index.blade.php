@@ -11,7 +11,7 @@
         <p class="mb-4">Temukan berbagai produk unggulan UMKM Padukuhan Sawahan sebagai langkah mendukung perekonomian lokal dan pemberdayaan masyarakat.</p>
     </div>
     </div>
-<div class="row justify-content-center">
+{{-- <div class="row justify-content-center">
 <div class="col-md-6 col-sm-6">
 <form action="/umkm">
     <div class="input-group mb-4">
@@ -20,7 +20,26 @@
       </div>
 </form>
 </div>
-</div>
+</div> --}}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-sm-6">
+      <form action="/umkm">
+        <div class="input-group mb-4">
+          <!-- Search Input -->
+          <input type="text" class="form-control" placeholder="Cari UMKM..." name="search" value="{{ request('search') }}">
+
+          <!-- Search Button -->
+          <button class="btn btn-dark" style="background-color: #052659; color: #f5f5f5; font-weight: 500;" type="submit">Search</button>
+
+          <!-- Show All Button -->
+          @if (request('search'))
+          <a href="/umkm" class="btn btn-outline-dark" style="background-color: #f5f5f5; color: #052659; border-color: #052659; font-weight: 500;">Semua</a>
+            @endif
+        </div>
+      </form>
+    </div>
+  </div>
+
 </div>
 @if ($data->count())
 <div class="container">
