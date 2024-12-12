@@ -67,7 +67,7 @@ class UmkmProductResource extends Resource
                     ->helperText("Max size: 5MB")
                         ->disk('public')->directory('product'),
                     ]),
-                    Checkbox::make('published')
+                    // Checkbox::make('published')
                 ])
             ])->columns(3);
     }
@@ -76,11 +76,11 @@ class UmkmProductResource extends Resource
     {
         return $table
             ->columns([
+                // CheckboxColumn::make('published')->label('Tampilkan')->sortable(),
                 ImageColumn::make('thumbnail')->label('Gambar'),
                 TextColumn::make('name')->label('Nama Produk')->sortable()->searchable(),
                 TextColumn::make('price')->label('Harga')->searchable(),
                 TextColumn::make('umkm.umkm_name')->label('UMKM')->sortable()->searchable(),
-                CheckboxColumn::make('published')->sortable()
             ])
             ->filters([
                 //
