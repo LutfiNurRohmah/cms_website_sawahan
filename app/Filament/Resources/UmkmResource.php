@@ -126,7 +126,10 @@ class UmkmResource extends Resource
                         Section::make('Gambar')
                         ->collapsible()
                         ->schema([
-                            FileUpload::make('thumbnail')->hiddenLabel()->image()->disk('public')->directory('umkm'),
+                            FileUpload::make('thumbnail')->hiddenLabel()
+                            ->maxSize(5120)
+                            ->helperText("Max size: 5MB")
+                            ->image()->disk('public')->directory('umkm'),
                         ]),
                         Section::make('Meta')->schema([
                         TagsInput::make('tags'),
@@ -148,7 +151,8 @@ class UmkmResource extends Resource
                             ->createOptionForm([
                                 TextInput::make('name')
                                 ->label('Jenis Platform')->required(),
-                                FileUpload::make('logo')->image()->disk('public')->directory('logo')->label('Logo Platform'),
+                                FileUpload::make('logo')->image()->maxSize(5120)
+                                ->disk('public')->directory('logo')->label('Logo Platform'),
                             ])
                             ->createOptionUsing(function (array $data) {
                                 $account = Account::create($data);
@@ -172,7 +176,7 @@ class UmkmResource extends Resource
                         TextInput::make('price')->label('Harga'),
                         TextInput::make('description')->label('Deskripsi'),
                         FileUpload::make('thumbnail')->label('Gambar Produk')
-                            ->image()
+                            ->image()->maxSize(5120)
                             ->disk('public')->directory('product'),
                     ]),
                 ])->collapsible()

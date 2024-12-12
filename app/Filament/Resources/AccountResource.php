@@ -38,7 +38,10 @@ class AccountResource extends Resource
                     ->description('Tambahkan Akun Sosial Media atau E-Commerce UMKM yang Tersedia.')
                     ->schema([
                         TextInput::make('name')->label('Nama Platform')->required(),
-                        FileUpload::make('logo')->label('Logo Platform')->image()->disk('public')->directory('logo')
+                        FileUpload::make('logo')->label('Logo Platform')->image()
+                        ->maxSize(5120)
+                    ->helperText("Max size: 5MB")
+                        ->disk('public')->directory('logo')
                     ])->columns(2)
             ]);
     }

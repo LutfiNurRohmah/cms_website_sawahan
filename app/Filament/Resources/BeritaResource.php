@@ -72,7 +72,10 @@ class BeritaResource extends Resource
                     ->schema([
                         FileUpload::make('thumbnail')
                         ->hiddenLabel()
-                        ->image()->multiple()->disk('public')->directory('berita'),
+                        ->image()
+                        ->maxSize(5120)
+                    ->helperText("Max size: 5MB")
+                        ->multiple()->disk('public')->directory('berita'),
                     ]),
                     Section::make('Meta')->schema([
                     TagsInput::make('tags'),

@@ -75,6 +75,8 @@ class ContactInformation extends Page implements HasForms
                     ->hiddenLabel()
                     ->multiple()
                     ->image()
+                    ->maxSize(5120)
+                    ->helperText("Max size: 5MB")
                     ->disk('public')->directory('info_image')
                 ])->columnSpan(1),
             ])->columns(3),
@@ -87,6 +89,7 @@ class ContactInformation extends Page implements HasForms
                     ->schema([
                         FileUpload::make('logo')
                             ->label('Logo Platform')
+                            ->maxSize(5120)
                             ->disk('public')->directory('logo_sosmed'),
                         TextInput::make('platform_name')
                             ->label('Jenis Platform')

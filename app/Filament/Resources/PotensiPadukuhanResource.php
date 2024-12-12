@@ -69,7 +69,10 @@ class PotensiPadukuhanResource extends Resource
                     ->schema([
                         FileUpload::make('thumbnail')
                         ->hiddenLabel()
-                        ->image()->multiple()->disk('public')->directory('potensi'),
+                        ->image()
+                        ->maxSize(5120)
+                    ->helperText("Max size: 5MB")
+                        ->multiple()->disk('public')->directory('potensi'),
                     ]),
                     Section::make('Meta')->schema([
                     TagsInput::make('tags'),

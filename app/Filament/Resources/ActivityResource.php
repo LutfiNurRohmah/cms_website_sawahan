@@ -71,6 +71,8 @@ class ActivityResource extends Resource
                     ->schema([
                         FileUpload::make('thumbnail')
                         ->hiddenLabel()
+                        ->maxSize(5120)
+                        ->helperText("Max size: 5MB")
                         ->image()->multiple()->disk('public')->directory('kegiatan'),
                     ]),
                     Section::make('Meta')->schema([

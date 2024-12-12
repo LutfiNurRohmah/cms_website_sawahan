@@ -62,7 +62,10 @@ class UmkmProductResource extends Resource
                         ->options(Umkm::all()->pluck('umkm_name', 'id'))->required(),
                     ]),
                     Section::make()->schema([
-                        FileUpload::make('thumbnail')->label('Gambar Produk')->image()->disk('public')->directory('product'),
+                        FileUpload::make('thumbnail')->label('Gambar Produk')->image()
+                        ->maxSize(5120)
+                    ->helperText("Max size: 5MB")
+                        ->disk('public')->directory('product'),
                     ]),
                     Checkbox::make('published')
                 ])

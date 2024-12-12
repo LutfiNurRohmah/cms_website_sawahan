@@ -45,7 +45,10 @@ class ProfilPadukuhan extends Page implements HasForms
                     'attachFiles',
                     'codeBlock'
                 ])->columnSpan(2),
-                FileUpload::make('thumbnail_sejarah')->image()->disk('public')->directory('profile'),
+                FileUpload::make('thumbnail_sejarah')
+                ->maxSize(5120)
+                ->helperText("Max size: 5MB")
+                ->image()->disk('public')->directory('profile'),
             ])->collapsible()->columns(3),
 
             Section::make('Deskripsi Padukuhan')->schema([
@@ -55,7 +58,11 @@ class ProfilPadukuhan extends Page implements HasForms
                 'attachFiles',
                 'codeBlock'
             ])->columnSpan(2),
-            FileUpload::make('thumbnail_deskripsi')->image()->disk('public')->directory('profile'),
+            FileUpload::make('thumbnail_deskripsi')
+            ->image()
+            ->maxSize(5120)
+            ->helperText("Max size: 5MB")
+            ->disk('public')->directory('profile'),
             ])->collapsible()->columns(3),
 
             Section::make('Visi dan Misi Padukuhan')->schema([
@@ -81,7 +88,10 @@ class ProfilPadukuhan extends Page implements HasForms
                 ])->columnSpan(2),
                 Group::make()->schema([
                     Section::make('Struktur Pemerintahan')->schema([
-                    FileUpload::make('struktur_pemerintahan')->hiddenLabel()->image()->disk('public')->directory('profile'),
+                    FileUpload::make('struktur_pemerintahan')->hiddenLabel()
+                    ->maxSize(5120)
+                    ->helperText("Max size: 5MB")
+                    ->image()->disk('public')->directory('profile'),
                     // FileUpload::make('peta_lokasi')->disk('public')->directory('profile'),
                     ])->collapsible()->columnSpan(1),
                     Section::make('Lokasi Padukuhan')
