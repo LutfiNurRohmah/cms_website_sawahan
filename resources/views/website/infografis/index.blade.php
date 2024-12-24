@@ -20,7 +20,7 @@
 <div class="container my-5">
     <h2 class="mb-4 pop-text">Jumlah Penduduk dan Kepala Keluarga</h2>
     <div class="tot-populasi row g-4">
-        <div class="col-md-4">
+        <div class="col-md-4 card-pop">
                 <div class="d-flex card-custom">
                     <div class="card-body">
                         <h5 class="card-title text-large">Total Penduduk</h5>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 card-pop">
                 <div class="d-flex card-custom">
                     <div class="card-body">
                         <h5 class="card-title text-large">Total Kepala Keluarga</h5>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 card-pop">
                 <div class="d-flex card-custom">
                     <div class="card-body">
                         <h5 class="card-title text-large">Total Perempuan</h5>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 card-pop">
                 <div class="d-flex card-custom">
                     <div class="card-body">
                         <h5 class="card-title text-large">Total Laki-Laki</h5>
@@ -185,7 +185,7 @@
 <div class="container my-5">
     <h2 class="mb-4 pop-text">Persebaran Penduduk Berdasarkan Agama</h2>
     <div class="tot-populasi row">
-        <div class="col-md-3">
+        <div class="col-md-3 card-religi">
             <div class="d-flex card-custom">
                 <div class="card-body">
                     <h5 class="card-title text-large">Islam</h5>
@@ -196,7 +196,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 card-religi">
             <div class="d-flex card-custom">
                 <div class="card-body">
                     <h5 class="card-title text-large">Kristen</h5>
@@ -207,7 +207,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 card-religi">
             <div class="d-flex card-custom">
                 <div class="card-body">
                     <h5 class="card-title text-large">Katolik</h5>
@@ -218,7 +218,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 card-religi">
             <div class="d-flex card-custom">
                 <div class="card-body">
                     <h5 class="card-title text-large">Hindu</h5>
@@ -229,7 +229,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 card-religi">
             <div class="d-flex card-custom">
                 <div class="card-body">
                     <h5 class="card-title text-large">Budha</h5>
@@ -240,7 +240,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 card-religi">
             <div class="d-flex card-custom">
                 <div class="card-body">
                     <h5 class="card-title text-large">Konghucu</h5>

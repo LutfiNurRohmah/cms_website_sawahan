@@ -75,6 +75,7 @@
             <h1>Sambutan Kepala Dukuh Sawahan</h1>
             <hr>
             <p>{!! str($sambutan)->markdown()->sanitizeHtml() !!}</p>
+
         </div>
     </div>
 </div>
@@ -86,9 +87,6 @@
     <div class="sambutan row pt-4 pb-5 my-2">
         <div class="px-4">
             <h1 class="mb-3">Berita Terkini Padukuhan Sawahan</h1>
-            <div class="col-12 text-center">
-                <a href="/berita" class="see-more btn btn-dark position-absolute" style="font-size: 14px; font-weight: 500; background-color: #052659">Lihat Berita Lainnya</a>
-            </div>
             <hr>
         </div>
             @foreach ($beritas as $index => $berita)
@@ -106,7 +104,9 @@
                     </div>
                 </div>
             @endforeach
-
+            <div class="col-12 text-center">
+                <a href="/berita" class="see-more btn btn-dark" style="font-size: 14px; font-weight: 500; background-color: #052659">Lihat Berita Lainnya</a>
+            </div>
     </div>
 </div>
 @endif
@@ -117,14 +117,11 @@
     <div class="sambutan row pt-4 pb-5 my-2">
         <div class="px-4">
             <h1 class="mb-3">UMKM Padukuhan Sawahan</h1>
-            <div class="col-12 text-center">
-                <a href="/umkm" class="see-more btn btn-dark position-absolute" style="font-size: 14px; font-weight: 500; background-color: #052659">Lihat UMKM Lainnya</a>
-            </div>
             <hr>
         </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-2 pt-0">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-2 pt-0 g-1 px-2">
             @foreach ($umkms as $umkm)
-            <div class="col m-0">
+            <div class="umkm-card col mb-3" style="min-width: 280px">
                 <div class="card shadow-sm" style="height: 100%;">
                 <div class="position-absolute px-3 py-2 text-white rounded" style="background-color: rgba(5, 38, 89, 0.8); font-weight:600;">{{ $umkm->umkmCategory->name }}</div>
                 <div class="px-4 pt-4">
@@ -143,7 +140,9 @@
             </div>
             @endforeach
         </div>
-
+        <div class="col-12 text-center">
+            <a href="/umkm" class="see-more btn btn-dark" style="font-size: 14px; font-weight: 500; background-color: #052659">Lihat UMKM Lainnya</a>
+        </div>
     </div>
 </div>
 @endif
@@ -196,7 +195,7 @@
             <h1>Lokasi</h1>
             <p>Padukuhan Sawahan, Kelurahan Sidomoyo, Kecamatan Godean, Kabupaten Sleman, Provinsi Daerah Istimewa Yogyakarta</p>
         </div>
-        <div class="col-12 col-sm-8 col-lg-7">
+        <div class="peta col-12 col-sm-12 col-lg-7">
             {!! $lokasi !!}
         </div>
     </div>

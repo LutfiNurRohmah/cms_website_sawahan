@@ -87,7 +87,7 @@
             <h1>Lokasi</h1>
             <p>Padukuhan Sawahan, Kelurahan Sidomoyo, Kecamatan Godean, Kabupaten Sleman, Provinsi Daerah Istimewa Yogyakarta</p>
         </div>
-        <div class="col-12 col-sm-8 col-lg-7">
+        <div class="peta col-12 col-sm-12 col-lg-7">
             {!! $profil->peta_lokasi !!}
         </div>
     </div>

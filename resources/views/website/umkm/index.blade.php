@@ -45,7 +45,7 @@
 <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       @foreach ($data as $umkm)
-      <div class="col">
+      <div class="umkm-card col">
         <div class="card shadow-sm" style="height: 100%;">
           <div class="position-absolute px-3 py-2 text-white rounded" style="background-color: rgba(5, 38, 89, 0.8); font-weight:600;">{{ $umkm->umkmCategory->name }}</div>
           <div class="px-4 pt-4">
